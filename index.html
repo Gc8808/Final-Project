@@ -23,15 +23,17 @@
         </div>
       </nav>
     </header>
-    <main id="main-content" style="display: none;">
+    <main>
       <div id="splash">
         <img src="logo.png" alt="Logo" id="logo" />
         <h1>Loading...</h1>
         <div class="progress-container">
-          <div class="progress-bar" id="progress-bar"></div>
+          <div class="progress"progress-bar" id="progress-bar"></div>
         </div>
       </div>
-      <img src="Alternate Logo 2.png" alt="Alternate Logo" />
+      <div id="alternate-logo-container" class="d-flex justify-content-center align-items-center" style="min-height: 60vh; display: none;">
+        <img src="Alternate Logo 2.png" alt="Alternate Logo" class="img-fluid" />
+      </div>
     </main>
     <footer>
       <p>&copy; 2025 Little Bird Toys. All rights reserved.</p>
@@ -47,6 +49,22 @@
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
     ></script>
+    <script src="itemslist.js"></script>
+    <script src="script.js"></script>
+  </body>
+    <script src="itemslist.js"></script>
+    <script>
+      // Show splash, then show alternate logo after loading
+      window.addEventListener('DOMContentLoaded', function () {
+        const splash = document.getElementById('splash');
+        const altLogo = document.getElementById('alternate-logo-container');
+        // Simulate loading (replace with your real loading logic)
+        setTimeout(function () {
+          splash.style.display = 'none';
+          altLogo.style.display = 'flex';
+        }, 2000); // 2 seconds for demo
+      });
+    </script>
     <script src="script.js"></script>
   </body>
 </html>

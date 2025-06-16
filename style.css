@@ -5,48 +5,37 @@ body, html {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: rgb(235, 185, 145);
 }
-
-/* Splash Screen Styling */
 #splash {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgb(246, 217, 193);
-  color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
-  transition: opacity 1s ease-out;
+  height: 100vh;
+  text-align: center;
+  background-color: #fff8e7;
 }
 
 #logo {
-  width: 100px;
-  height: auto;
+  width: 150px;
   margin-bottom: 20px;
 }
 
-/* Progress bar container */
 .progress-container {
   width: 80%;
-  background: #333;
-  border-radius: 20px;
+  background-color: #ddd;
+  height: 20px;
+  border-radius: 10px;
   overflow: hidden;
   margin-top: 20px;
 }
 
-/* Progress bar itself */
 .progress-bar {
-  height: 20px;
-  background: orange;
-  width: 0%;
-  transition: width 0.1s linear;
+  width: 0;
+  height: 100%;
+  background-color: #ff9800;
+  transition: width 0.2s ease-in-out;
 }
 
-/* Header and Nav Styling */
 header {
   background-color: tan;
   color: white;
