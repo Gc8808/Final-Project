@@ -6,7 +6,9 @@ body, html {
   background-color: rgb(235, 185, 145);
 }
 
-
+.center {
+  justify-content: center;
+}
 #logo {
   width: 150px;
   margin-bottom: 20px;
@@ -216,9 +218,11 @@ img:hover {
 
 .homescreenlogo {
   width: 100%;
-  max-width: 450px;
+  max-width: 500px;
   height: auto;
   display: block;
   margin: 0 auto;
   border-radius: 20px;
 }
+
+

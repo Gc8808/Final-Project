@@ -20,7 +20,7 @@ const players = [
     age: "$7.49",
     country: "10.5 width ; 3.5 height",
     position: "All ages",
-    photo: "boat2.jpg",
+    photo: "boat1.jpg",
     button: '<button onclick="showProfile(\'Wooden Boat\')" class="btn btn-primary">View Details</button>',
   },
   {
@@ -38,6 +38,14 @@ const players = [
     position: "6+ years",
     photo: "car3.jpg",
     button: '<button onclick="showProfile(\'Wooden Car\')" class="btn btn-primary">View Details</button>',
+  },
+  {
+    name: "More coming soon...",
+    age: "TBD",
+    country: "TBD",
+    position: "TBD",
+    photo: "https://picsum.photos/200",
+   
   },
 ];
 

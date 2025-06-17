@@ -1,40 +1,44 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const grid = document.getElementById("rosterGrid");
-  if (grid) {
-    const render = (list) => {
-      grid.innerHTML = ""; // Clear grid before rendering
+  const rosterGrid = document.getElementById("rosterGrid");
 
-      const row = document.createElement("div");
-      row.className = "row"; // Ensure row wrapper is present
-
-      list.forEach((p) => {
-        const col = document.createElement("div");
-        col.className = "col-sm-6 col-md-4 col-lg-3 mb-4";
-
-        col.innerHTML = `
-          <div class="card h-100 w-100 shadow-sm">
-            <img src="${p.photo}" class="card-img-top" alt="${p.name}" style="height: 200px; object-fit: cover;">
-            <div class="card-body text-center">
-              <h5 class="card-title mb-1">${p.name}</h5>
-              <p class="card-text">Price: ${p.age}</p>
-              <p class="card-text">Dimensions: ${p.country}</p>
-              <span class="badge bg-dark mb-2">${p.position}</span><br>
-              ${p.button}
-            </div>
-          </div>
-        `;
-
-        row.appendChild(col);
-      });
-
-      grid.appendChild(row); // Add the row to the grid container
-    };
-
-    render(players);
-  }
+  players.forEach((player) => {
+    const card = document.createElement("div");
+    // Use col-lg-2 to fit 5 cards in a row (12 / 5 ≈ 2.4, so col-lg-2 is closest)
+    card.className = "col-12 col-sm-6 col-md-4 col-lg-4 center justify-content-center ";
+    card.innerHTML = `
+      <div class="card h-200 w-300  justify-content-center">
+        <img src="${player.photo}" class="card-img-top" alt="${player.name}">
+        <div class="card-body text-center">
+          <h5 class="card-title">${player.name}</h5>
+          <p class="card-text"><strong>Price:</strong> ${player.age}</p>
+          <p class="card-text"><strong>Age:</strong> ${player.position}</p>
+          ${player.button}
+        </div>
+      </div>
+    `;
+    rosterGrid.appendChild(card);
+  });
 });
 
-  // Splash screen and progress bar logic
+// Existing showProfile function (unchanged)
+function showProfile(name) {
+  const player = players.find((p) => p.name === name);
+  if (!player) return;
+
+  document.getElementById("modalHead").textContent = player.name;
+  document.getElementById("modalBody").innerHTML = `
+    <img src="${player.photo}" class="img-fluid mb-3" alt="${player.name}">
+    <p><strong>Price:</strong> ${player.age}</p>
+    <p><strong>Dimensions:</strong> ${player.country}</p>
+    <p><strong>Recommended Age:</strong> ${player.position}</p>
+    <p>${getBio(player.name)}</p>
+  `;
+
+  const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+  modal.show();
+}
+
+  // Splash screen and progress bar slogic
   const progressBar = document.getElementById("progressBar");
   const loadingScreen = document.getElementById("loadingScreen");
   const mainContent = document.getElementById("mainContent");
