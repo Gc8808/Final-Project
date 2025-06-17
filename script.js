@@ -4,12 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const render = (list) => {
       grid.innerHTML = ""; // Clear grid before rendering
 
+      const row = document.createElement("div");
+      row.className = "row"; // Ensure row wrapper is present
+
       list.forEach((p) => {
         const col = document.createElement("div");
         col.className = "col-sm-6 col-md-4 col-lg-3 mb-4";
 
         col.innerHTML = `
-          <div class="card h-100 shadow-sm">
+          <div class="card h-100 w-100 shadow-sm">
             <img src="${p.photo}" class="card-img-top" alt="${p.name}" style="height: 200px; object-fit: cover;">
             <div class="card-body text-center">
               <h5 class="card-title mb-1">${p.name}</h5>
@@ -21,12 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         `;
 
-        grid.appendChild(col);
+        row.appendChild(col);
       });
+
+      grid.appendChild(row); // Add the row to the grid container
     };
 
     render(players);
   }
+});
 
   // Splash screen and progress bar logic
   const progressBar = document.getElementById("progressBar");
@@ -47,4 +53,4 @@ document.addEventListener("DOMContentLoaded", () => {
       loadingScreen.style.display = "none";
       mainContent.style.display = "block";
     }
-  }, interval)});
+  }, interval);

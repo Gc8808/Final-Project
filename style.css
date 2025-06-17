@@ -76,25 +76,30 @@ header {
 
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center buttons horizontally */
   align-items: center;
+  gap: 15px;               /* Add spacing between buttons */
   max-width: 600px;
   margin: 0 auto;
+  padding: 20px 0;
 }
 
 nav a {
   color: white;
   text-decoration: none;
   font-size: 20px;
-  background-color: black;
-  padding: 5px 10px;
+  background-color: rgba(199, 132, 9, 0.663);
+  padding: 8px 16px;
   border-radius: 5px;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  display: inline-block;
 }
 
 nav a:hover {
   transform: scale(1.05);
+  background-color: #333; /* Optional: darker background on hover */
 }
+
 
 /* Contact Page Styling */
 .contact-wrapper {
@@ -207,4 +212,13 @@ img:hover {
 .col-6,
 .col-lg-2 {
   padding: 0.5rem;
+}
+
+.homescreenlogo {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 20px;
 }
