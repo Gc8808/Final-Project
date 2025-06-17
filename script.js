@@ -29,24 +29,22 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Splash screen and progress bar logic
-  const splash = document.getElementById("splash");
-  const mainContent = document.getElementById("main-content");
-  const progressBar = document.getElementById("progress-bar");
-  const startupSound = document.getElementById("startup-sound");
+  const progressBar = document.getElementById("progressBar");
+  const loadingScreen = document.getElementById("loadingScreen");
+  const mainContent = document.getElementById("mainContent");
 
   let progress = 0;
+  const duration = 3000; // 3 seconds
+  const interval = 30; // update every 30ms
+  const step = 100 / (duration / interval);
 
-  const interval = setInterval(() => {
-    progress += 1;
+  const loader = setInterval(() => {
+    progress += step;
     progressBar.style.width = progress + "%";
 
     if (progress >= 100) {
-      clearInterval(interval);
-      splash.style.display = "none";
+      clearInterval(loader);
+      loadingScreen.style.display = "none";
       mainContent.style.display = "block";
-      if (startupSound) {
-        startupSound.play();
-      }
     }
-    }, 25); // 100
-  });
+  }, interval)});
